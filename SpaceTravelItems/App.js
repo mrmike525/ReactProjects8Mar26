@@ -27,15 +27,9 @@ function App() {
     <div>
       <h1>Inventory</h1>
       <ol>
-        {/* {inventoryItems.map(({ name, type, quantity = 0, price }) => (
-          <li>
-            {`Name: ${name}`}, {`Type: ${type}`},{`Quantity: ${quantity}`},
-            {`Price: ${price}`}
-          </li>
-        ))} */}
-        <InventoryItem items={inventoryItems} />
+       <InventoryItem items={inventoryItems} />
         {/* /* <!-- TODO: Render each inventory item as a list item. --> */}
-        {/* <Message prop={alert} /> */}
+        
       </ol>
     </div>
   );

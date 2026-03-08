@@ -1,6 +1,7 @@
 function Message({ quantity, price, children }) {
   return (
     <div>
+      
       <h3
         style={{ color: quantity <= 5 ? "hsla(14, 78%, 55%, 1.00)" : "black" }}
       >
@@ -12,10 +13,10 @@ function Message({ quantity, price, children }) {
           : price}
       </h3>
       {children}
+      
     </div>
+    
   );
 }
 
-{
-  /* TODO: Take the props. */
-}
+

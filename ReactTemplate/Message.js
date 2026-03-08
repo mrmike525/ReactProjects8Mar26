@@ -1,7 +1,7 @@
 function Message() {
   return (
     <div>
-      <p style={{ color: "orange" }}>Hello World@@!</p>
+      <p style={{ color: "orange", fontSize: "5rem"}}>Hello World@@!</p>
     </div>
   );
 }
