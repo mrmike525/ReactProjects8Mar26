@@ -9,12 +9,7 @@ import Header from "./Header";
 function App() {
   return (
     <>
-      <Header />
-      <h1> Hello Abby</h1>
-      <img src={familyImg} alt="" width="20%" onClick={Clicker} />
-      <Num />
-    </>
-  );
+      </>
 }
 
 export default App;
