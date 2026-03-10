@@ -1,10 +1,9 @@
-const Chakra = function({color, value}) {
-    const choice = (color, value)=>{color + "." + value};
-    console.log(choice());
-    console.log(value);
+
+
+const Chakra = function({color}) {
     console.log(color);
-    const disected = color.Crown
-    console.log(disected)
-    return <div style={{backgroundColor: disected, width: "200px", height: "200px"}}></div>
+    
+    
+    return <div style={{backgroundColor: color, width: "200px", height: "200px", alignContent: "center"}}></div>
 };
 export default Chakra;
