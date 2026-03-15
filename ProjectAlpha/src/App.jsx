@@ -1,36 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Chakra from './Chakra'
-import { changeColor } from './changeColor'
-const colors = {Crown: "magenta", ThirdEye: "purple", Throat: "blue", Heart: "green", SolarPlexus: "yellow", Navel: "orange", Root: "red"};
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import "./Magenta";
+import "./Violet";
+import "./Blue";
+import "./Green";
+import "./Yellow";
+import "./Orange";
+import "./Red";
+import Magenta from "./Magenta";
+import Violet from "./Violet";
+import Blue from "./Blue";
+import Green from "./Green";
+import Yellow from "./Yellow";
+import Orange from "./Orange";
+import Red from "./Red";
 
 let value1 = false
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-    <div style={{display: "flex", flexDirection: "column"}}>
-    <Chakra color = {colors.Crown}/>
-    <Chakra color = {colors.ThirdEye}/>
-    <Chakra color = {colors.Throat}/>
-    <Chakra color = {colors.Heart}>
-      <span>Well this is the way! Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim culpa quidem, molestias commodi quae non, corrupti ex nulla delectus placeat eaque magnam! Pariatur facilis rerum quis fuga beatae, architecto vel?</span>
-      <p>help</p>
-      <button onClick={value1 = true} style={{color: value1 === true ? "green": "red"}}>Change Color </button>
-      </Chakra>
-    <Chakra color = {colors.SolarPlexus}/>
-    <Chakra color = {colors.Navel}/>
-    <Chakra color = {colors.Root}/>
-     </div>
-     <p>help</p>
+      <Magenta />
+      <Violet />
+      <Blue />
+      <Green />
+      <Yellow />
+      <Orange />
+      <Red />
     </>
-  )
+  );
 }
 
-export default App
-
-
+export default App;
