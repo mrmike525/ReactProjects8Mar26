@@ -1,1 +1,44 @@
-
+* {
+  border-radius: 100px;
+}
+.Magenta {
+  background-color: magenta;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  /* display: flex; */
+  align-content: center;
+  position: relative;
+  top: 20px;
+}
+.Violet {
+  background-color: rgb(138, 8, 138);
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
+.Blue {
+  background-color: rgb(13, 66, 157);
+  height: 200px;
+  width: 200px;
+}
+.Green {
+  background-color: rgb(14, 179, 14);
+  height: 200px;
+  width: 200px;
+}
+.Yellow {
+  background-color: rgb(253, 253, 58);
+  height: 200px;
+  width: 200px;
+}
+.Orange {
+  background-color: rgba(249, 182, 57, 0.965);
+  height: 200px;
+  width: 200px;
+}
+.Red {
+  background-color: rgb(249, 14, 14);
+  height: 200px;
+  width: 200px;
+}
