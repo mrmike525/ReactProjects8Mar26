@@ -11,3 +11,6 @@ const Chakra = function({color, children, id}) {
     </div>
 };
 export default Chakra;
+
+// style= {{backgroundColor color === "green" ? "orange" : "green"}}
+

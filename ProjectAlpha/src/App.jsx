@@ -1,38 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Chakra from './Chakra'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import "./Magenta";
+import "./Violet";
+import "./Blue";
+import "./Green";
+import "./Yellow";
+import "./Orange";
+import "./Red";
+import Magenta from "./Magenta";
+import Violet from "./Violet";
+import Blue from "./Blue";
+import Green from "./Green";
+import Yellow from "./Yellow";
+import Orange from "./Orange";
+import Red from "./Red";
 
-function ClickMe(){console.log("I have been clicked!!");
-  let x = document.querySelector('#optional');
-   
-  x.style.backgroundColor = "rgb(112, 253, 47)"
-}
-
-const colors = {Crown: "magenta", ThirdEye: "purple", Throat: "blue", Heart: "green", SolarPlexus: "yellow", Navel: "orange", Root: "red"};
+let value1 = false
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-    <span style={{display: "flex", flexDirection: "column"}}>
-    <Chakra color = {colors.Crown}/>
-    <Chakra color = {colors.ThirdEye}/>
-    <Chakra color = {colors.Throat}/>
-    <Chakra color = {colors.Heart}/>
-    <Chakra  id="optional" color = {colors.SolarPlexus}/>
-    <Chakra color = {colors.Navel}/>
-    <Chakra color = {colors.Root}>
-      <button onClick={ClickMe}>Click ME!!</button>
-      </Chakra>
-     </span>
-     <span>Help Me Please</span>
+      <Magenta />
+      <Violet />
+      <Blue />
+      <Green />
+      <Yellow />
+      <Orange />
+      <Red />
     </>
-  )
+  );
 }
 
-export default App
-
-
+export default App;
