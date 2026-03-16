@@ -17,6 +17,8 @@ import Yellow from "./Yellow";
 import Orange from "./Orange";
 import Red from "./Red";
 
+let value1 = false
+
 function App() {
   const [count, setCount] = useState(0);
 

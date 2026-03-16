@@ -1,0 +1,45 @@
+#container {
+  display: absolute;
+  margin: 0 auto;
+}
+#countState {
+  margin: 20px auto;
+  display: block;
+  position: relative;
+  left: 20%;
+  font-size: 70px;
+}
+button {
+  border: 10px;
+  margin: 10px;
+  display: inline-block;
+  border: 5px solid rgb(16, 149, 244);
+  font-size: 40px;
+
+}
+
+#addOne {
+  color: red;
+  border-radius: 30px;
+  width: 20%;
+}
+#reset {
+  color: rgb(17, 180, 36);
+  border-radius: 30px;
+  width: 20%;
+}
+#addTen {
+  color: rgb(33, 81, 214);
+  border-radius: 30px;
+  width: 20%;
+}
+
+#buttonContainer {
+  border: 6px solid orange;
+  border-radius: 20px;
+  background-color: black;
+}
+
+.ButtonGroup button {
+  color: orange;
+}
