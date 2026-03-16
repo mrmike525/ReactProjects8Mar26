@@ -1,9 +1,13 @@
 
 
-const Chakra = function({color}) {
+const Chakra = function({color, children, id}) {
     console.log(color);
     
     
-    return <div style={{backgroundColor: color, width: "200px", height: "200px", alignContent: "center"}}></div>
+    return <div id={id} style={{backgroundColor: color, width: "200px", height: "200px", alignContent: "center", borderRadius: "120px"}}>
+        <span>Sombody Help Me Please!</span>
+        {children}
+        
+    </div>
 };
 export default Chakra;
