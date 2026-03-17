@@ -10,7 +10,7 @@ const NumbersList = () => {
         <ul>
             {numbers.map(n => (
                 <li key={n}>
-                    <button  onClick={() => remove(n)}>{n}</button>
+                    <button onClick={() => remove(n)}>{n}</button>
                 </li>
             ))}
         </ul>
