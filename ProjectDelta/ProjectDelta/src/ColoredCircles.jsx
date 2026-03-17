@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Circle from "./Circle";
 import ColorButtons from "./ColorButtons";
+
+function  getRandom(min = 0, max = 100)
+
 const ColoredCircles = () => {
     const [circles, setCircles] = useState(['cornflowerblue', 'peachpuff', 'lavender'])
     const addCircle = (color) => {
