@@ -25,6 +25,7 @@ function App() {
   { msg: "My sources say no.", color: "red" },
   { msg: "Outlook not so good.", color: "red" },
   { msg: "Very doubtful.", color: "red" },
+  {msg: "Think of a Question", color: "black"}
 ]
 return (
     <>

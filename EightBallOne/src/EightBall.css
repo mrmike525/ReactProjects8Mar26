@@ -1,0 +1,28 @@
+.eightball {
+    /* position: absolute; */
+    display: flex;
+    /* border: 2px solid orange; */
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    background-color: green;
+    top: 10vh;
+    left: 30vw;
+    overflow: hidden;
+}
+.eightball button {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    border: 0px solid orange;
+    height: 2rem;
+    top: 45%;
+    left: 20%;
+}
+.reset {
+    position: fixed;
+    left: 40vw;
+    top: 80vh;
+}
