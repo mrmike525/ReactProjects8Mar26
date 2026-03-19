@@ -1,0 +1,20 @@
+.list {
+    font-size: 50px;
+    color: hsl(0, 64%, 36%);
+    font-weight: bolder;
+    
+}
+
+/* .ToDoHead {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  font-size: 70px; */
+  /* border: 2px solid black; */
+/* } */
+.ToDoHead h1{
+  position: relative;
+  left: 20%;
+  margin: 0 auto;
+  font-size: 70px;
+}
