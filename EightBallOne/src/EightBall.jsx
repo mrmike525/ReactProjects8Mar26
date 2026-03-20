@@ -5,6 +5,9 @@ const EightBall = ({source}) => {
     console.log(source[0])
     function randomNum(){
         const randoNum = Math.floor(Math.random() * source.length - 1);
+        if(randomNum === -1){
+            randomNum = 0;
+        }
         console.log(randoNum);
         return randoNum
     } 
@@ -23,8 +26,10 @@ const EightBall = ({source}) => {
         return rando
         });}}> {source[oracle].msg} </button>
         {/* <li>help</li> */}
+        <div className='resetDiv'>
+        <button id='reset' onClick={()=>setOracle(20)}>Reset</button>
+        </div>
         </div> 
-        <button className='reset' onClick={()=>setOracle(20)}>Reset</button>
         
         
         </>

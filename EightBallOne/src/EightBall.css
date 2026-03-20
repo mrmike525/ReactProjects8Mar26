@@ -1,5 +1,5 @@
 .eightball {
-    /* position: absolute; */
+    position: absolute;
     display: flex;
     /* border: 2px solid orange; */
     border-radius: 50%;
@@ -8,7 +8,7 @@
     background-color: green;
     top: 10vh;
     left: 30vw;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .eightball button {
     position: relative;
@@ -21,8 +21,14 @@
     top: 45%;
     left: 20%;
 }
-.reset {
-    position: fixed;
-    left: 40vw;
-    top: 80vh;
+#reset {
+    font-size: 50px;
+    color: black;
+}
+.resetDiv {
+    max-width: 700px;
+  margin: 0 auto;
+  position: absolute;
+  top: 60vh;
+  left: 10vw;
 }
