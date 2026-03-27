@@ -15,8 +15,8 @@ const Alpha = [
       <button className='advanceState'>Click To Advance The Count</button>
     
     </div>
-    {/* {Alpha.map((item, idx)=> (<button key={item}>{item}</button>
-    ))}   */}
+    {Alpha.map((item, idx)=> (<button key={item}>{item}</button>
+    ))}   
 
     </>
   )
