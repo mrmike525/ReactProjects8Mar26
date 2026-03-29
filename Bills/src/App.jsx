@@ -31,7 +31,7 @@ return add5
     
     </div>
     <div className='ButtonContainer'>
-    {Alpha.map((item, idx) => (<button key={item} className={item} onClick={item === 'five' ? add5 : null}> {item} </button>))}
+    {Alpha.map((item, idx) => (<button key={item} > {item} </button>))}
 </div>
     </>
 )
