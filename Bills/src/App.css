@@ -22,3 +22,18 @@
    right: 60%;
    
 }
+
+.ButtonContainer {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid orange */
+}
+
+.buttons {
+    color: red;
+    width: 6rem;
+    position: relative;
+    left: 40%;
+    margin: 10px;
+    font-size: 2rem;
+}
