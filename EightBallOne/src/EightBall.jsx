@@ -16,7 +16,7 @@ const EightBall = ({source}) => {
     const [oracle, setOracle] = useState(20);
     const [ballColor, setBallColor] =useState();
     console.log(oracle)
-    const style = source[oracle].msg === source[20].msg ?{fontSize: "30px", left: "17%", backgroundColor: source[oracle].color} : {fontSize: "25px", backgroundColor: source[oracle].color, margin: '10px', marginLeft: "15px"};
+    const style = source[oracle].msg === source[20].msg ?{fontSize: "30px", left: "13%", backgroundColor: source[oracle].color} : {fontSize: "25px", backgroundColor: source[oracle].color, margin: '10px', marginLeft: "15px"};
     return (
         <>
         
