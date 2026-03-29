@@ -34,6 +34,11 @@ newDiv.style.width = "200px"
 newDiv.style.height = "200px"
 newDiv.style.backgroundColor = "orange"
 takesFour(...MinPaymentAndDate);
+
+
+const newH3 = Array.from(document.querySelectorAll('h3'));
 MinPaymentAndDate.map(function(values){
-    newDiv.append(values);
+    const h3 = document.createElement('h3');
+    h3.innerText = values;
+    newDiv.append(h3);
 })
