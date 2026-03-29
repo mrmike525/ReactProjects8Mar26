@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import './App.css'
+import Bills from './Bills'
+import Test from './test'
+import Table from './Table'
+import Data from './Accounts'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +21,9 @@ return add5
 
   return (
     <>
+      <Bills />
+      <Test/>
+      <Table object = {Data}/>
       <div className='state' onClick={() => advanceCount()}>
         {count}
       
