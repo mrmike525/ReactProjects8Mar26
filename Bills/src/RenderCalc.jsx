@@ -5,6 +5,8 @@ function RenderCalc(){
     const calcData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     const operAnd = [ "🟰", "➕", "➖", "✖️", "➗", "DEL"];
     const [calc, setCalc] = useState(0);
+    const copyOperAnd = [...operAnd];
+    console.log(copyOperAnd)
     return (
         <>
         <div className="calc">{calc} </div>
