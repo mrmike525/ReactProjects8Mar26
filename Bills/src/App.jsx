@@ -5,7 +5,7 @@ import Test from './test'
 import Table from './Table'
 import Data from './Accounts'
 import RenderCalc from './RenderCalc'
-
+import './Code.css'
 function App() {
   const [count, setCount] = useState(0);
   function advanceCount(value){
@@ -28,6 +28,7 @@ function App() {
 const Alpha = [
   'one', 'two', 'three', 'four', 'five', 'reset'
 ];
+const Code = ['Eat', 'Sleep', 'Code', 'Repeat!']
 
 
  
@@ -47,7 +48,16 @@ const Alpha = [
     {Alpha.map((item) => (<button key={item} onClick={() => advanceCount(item)}> {item} </button>))}
 </div> */}
 <RenderCalc/>
-
+<div><h1>
+  <ol>
+    <li>Eat</li>
+    <li>Sleep</li>
+    <li>Code</li>
+    <li>Repeat!</li>
+</ol></h1></div>
+<div className='Code'>
+{Code.map((item, idx)=>{return <h3 key={idx}>{item}</h3>})}
+</div>
     </>
 )
 }
