@@ -1,0 +1,17 @@
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    flex-wrap: wrap;
+    width: 600px;
+}
+.RenderCalc {
+width: 150px;
+font-size: 40px;
+
+}
+.result {
+    position: relative;
+    left: 25%;
+    font-size: 80px;
+}
