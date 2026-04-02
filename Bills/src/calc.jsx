@@ -1,14 +1,17 @@
 import { useState } from "react"
+import RenderCalc from "./RenderCalc";
 
-function calc(){
+function Calc(){
 const [equation, setEquation] = useState(0);
 
-const add = setEquation((v = 5) => {return v + equation });
-const subtract = setEquation((v)=> (equation - v ));
-const multiply = setEquation((v)=> (equation * v ));
-const divide = setEquation((v)=> (equation / v));
+// const add = setEquation((v = 5) => {return v + equation });
+// const subtract = setEquation((v)=> (equation - v ));
+// const multiply = setEquation((v)=> (equation * v ));
+// const divide = setEquation((v)=> (equation / v));
 
-return add
+return (
+    <RenderCalc result={Calc}/>
+)
 }
 
-export default calc
+export default Calc
