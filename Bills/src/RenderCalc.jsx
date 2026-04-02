@@ -11,7 +11,7 @@ function RenderCalc(){
         <div className="CalcContainer">
             
         {calcData.map((item, idx) => (<button key={idx} onClick={()=>(setCalc((c) => {return c + item}))}>{item}</button>))}
-        {operAnd.map((item, idx) => (<button key={idx} onClick={(c)=>(setCalc(calc + c))}>{item}</button>))}
+        {operAnd.map((item, idx) => (<button key={idx} onClick={(c)=>(setCalc(item))}>{item}</button>))}
    </div>
    </>
     )
