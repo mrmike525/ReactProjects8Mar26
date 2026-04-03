@@ -1,6 +1,6 @@
 import './RenderCalc.css'
 import { useState } from 'react'
-function RenderCalc({nums, operation, add, subtract, multiply, divide}){
+function RenderCalc({nums, operation, add, subtract, multiply, divide, del}){
 const [result, setResult] = useState(0);
 //  console.log(nums)
 // console.log(add)
@@ -9,7 +9,7 @@ const [result, setResult] = useState(0);
         <div className='result'>{result}</div>
         <span className="buttonContainer">
         {nums.map(function(item){return <button className="RenderCalc" key={item} onClick={()=> setResult((r) => (add(r, item)))}> {item} </button>})}
-        {operation.map((item)=>(<button key={item}>{item}</button>))}
+        {operation.map((item)=>(<button key={item} onClick={()=>setResult(() => (del(item)))}>{item}</button>))}
     </span>
     </>
     )
