@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function mainCalc() {
     const [result, setResult] = useState(0);
-    const [operator, setOperator] = useState("+");
+    const [operator, setOperator] = useState("➕");
     const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     const operators = ["➕", "➖", "✖️", "➗", "🟰", "DEL"];
     
@@ -18,6 +18,7 @@ function mainCalc() {
         if (valueA === "DEL")
         {
             setResult(0);
+            setOperator("➕")
             return returnedVal
         } else {return returnedVal}
         
@@ -35,10 +36,11 @@ function mainCalc() {
             return divide(valueA, valueB)
         } else {return valueA}
     }
+    
     return (
         <>
+            
         
-        {/* <h2>Hi</h2> */}
             <RenderCalc nums={digits} operation={operators} add={add} subtract={subtract} multiply={multiply} divide={divide} del={del} result={result} setResult={setResult} operator={operator} setOperator={setOperator} multiFunc={multiFunc} />
     </>
     )

@@ -1,9 +1,7 @@
 import './RenderCalc.css'
 
-function RenderCalc({nums, operation, add, subtract, multiply, divide, del, setResult, result, setOperator, operator, multiFunc}){
-    console.log(multiFunc)
-//  console.log(nums)
-// console.log(add)
+function RenderCalc({nums, operation, del, setResult, result, setOperator, operator, multiFunc}){
+
     return (
         <>
             <div className='result'>{result}</div>
@@ -11,6 +9,7 @@ function RenderCalc({nums, operation, add, subtract, multiply, divide, del, setR
         <span className="buttonContainer">
         {nums.map(function(item){return <button className="RenderCalc" key={item} onClick={()=> setResult((r) => (multiFunc(r, item)))}> {item} </button>})}
         {operation.map((item)=>(<button key={item}  className='RenderOperation' onClick={()=>setOperator(() => (del(item)))}>{item}</button>))}
+        
     </span>
     </>
     )
