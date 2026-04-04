@@ -1,15 +1,16 @@
 import './RenderCalc.css'
-import { useState } from 'react'
-function RenderCalc({nums, operation, add, subtract, multiply, divide, del}){
-const [result, setResult] = useState(0);
+
+function RenderCalc({nums, operation, add, subtract, multiply, divide, del, setResult, result, setOperator, operator, multiFunc}){
+    console.log(multiFunc)
 //  console.log(nums)
 // console.log(add)
     return (
         <>
-        <div className='result'>{result}</div>
+            <div className='result'>{result}</div>
+            <div className='operator'>{operator}</div>
         <span className="buttonContainer">
-        {nums.map(function(item){return <button className="RenderCalc" key={item} onClick={()=> setResult((r) => (add(r, item)))}> {item} </button>})}
-        {operation.map((item)=>(<button key={item}  className='RenderOperation' onClick={()=>setResult(() => (del(item)))}>{item}</button>))}
+        {nums.map(function(item){return <button className="RenderCalc" key={item} onClick={()=> setResult((r) => (multiFunc(r, item)))}> {item} </button>})}
+        {operation.map((item)=>(<button key={item}  className='RenderOperation' onClick={()=>setOperator(() => (del(item)))}>{item}</button>))}
     </span>
     </>
     )
