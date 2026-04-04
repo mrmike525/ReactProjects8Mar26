@@ -1,6 +1,6 @@
 .buttonContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 2px solid red;
     flex-wrap: wrap;
     width: 600px;
@@ -14,4 +14,8 @@ font-size: 40px;
     position: relative;
     left: 25%;
     font-size: 80px;
+}
+
+.RenderOperation {
+    width: 50px;
 }
