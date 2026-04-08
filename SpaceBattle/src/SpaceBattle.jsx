@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./SpaceBattle.css"
 
-function SpaceBattle() {
+function SpaceBattle({range = 100}) {
   const [yourLife, setYourLife] = useState(100);
   const [enemysLife, setEnemysLife] = useState(100);
   const [gameStatus, setGameStatus] = useState("Game In Play!");
 
-  function getRandomDamage(range = 100) {
+  function getRandomDamage() {
     return Math.floor(Math.random() * range);
   }
 
@@ -25,10 +25,10 @@ function SpaceBattle() {
       setGameStatus("DRAW!!");
       return
     } else if (newYourLife <= 0) {
-      setGameStatus("YOU LOSE!! GAME OVER");
+      setGameStatus("Too bad YOU LOSE!! GAME OVER!");
       return
     } else if (newEnemyLife <= 0) {
-      setGameStatus("YOU WIN!!");
+      setGameStatus("Congratulations YOU WIN!!");
       return
     } else {
       setGameStatus("Game In Play!");
@@ -45,7 +45,7 @@ function SpaceBattle() {
           </span>
         </h3>
 
-        <button className="fireButton" onMouseDown={updateGameStatus}>Click To Fire!</button>
+        <button style={{display: gameStatus === "Game In Play!" ? "inline": "none"}}className="fireButton" onMouseDown={updateGameStatus}>Click To Fire!</button>
 
         <h3 className="enemysHealth" style={{ display: "inline" }}>
           Enemy's Health{" "}
@@ -55,7 +55,8 @@ function SpaceBattle() {
         </h3>
       </div>
         <div className="resetContainer"><button className="resetButton" style={{display: gameStatus === "Game In Play!" ? "none": "inline"}} onClick={()=>{setEnemysLife(100); setYourLife(100); setGameStatus("Game In Play!")}}>Reset</button></div>
-      <div className="gameStatus">{gameStatus}</div>
+        <div className="gameStatus">{gameStatus}</div>
+        
     </>
   );
 }

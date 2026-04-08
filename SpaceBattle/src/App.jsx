@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-     <SpaceBattle/>
+      <SpaceBattle range={80} />
     </>
   )
 }
