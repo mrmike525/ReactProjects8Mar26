@@ -1,0 +1,33 @@
+.yourHealth {
+    font-size: 50px;
+}
+.enemysHealth {
+    font-size: 50px;
+}
+.fireButton {
+    width: 25vw;
+    height: 50vh;
+    border-radius: 50px;
+    font-size: 100px;
+}
+.gameStatus {
+position: relative;
+left: 20%;
+margin-top: 10vh;
+font-size: 40px;
+color: blueviolet;
+}
+.resetContainer {
+    /* border: 2px solid black; */
+    width: 10vw;
+    height: 10vh;
+    position: relative;
+    left: 25%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+.resetButton {
+    color: orange;
+}
