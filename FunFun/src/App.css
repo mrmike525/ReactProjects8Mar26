@@ -1,3 +1,45 @@
 .header a{
 margin: 10px;
 }
+
+.magenta {
+    width: 700px;
+    height: 100px;
+    background-color: magenta;
+
+}
+.violet {
+    width: 700px;
+    height: 100px;
+    background-color: purple;
+
+}
+.blue {
+    width: 700px;
+    height: 100px;
+    background-color: blue;
+
+}
+.green {
+    width: 700px;
+    height: 100px;
+    background-color: green;
+
+}
+.yellow {
+    width: 700px;
+    height: 100px;
+    background-color: yellow;
+
+}
+.orange {
+    width: 700px;
+    height: 100px;
+    background-color: orange;
+
+}
+.red {
+    width: 700px;
+    height: 100px;
+    background-color: red;7
+}

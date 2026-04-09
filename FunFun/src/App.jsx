@@ -24,6 +24,13 @@ function App() {
       <a href="">Let's Taco BOUT IT</a>
      </div>
      <div>Mission ID: {missionCount[0]} Mission Name: {missionName[0]} Mission Status: {status[0]} Crew: {crew[0] + " " + crew[1]} </div>
+     <div className='magenta'>Magenta</div>
+     <div className='violet'>Violet</div>
+     <div className='blue'>Blue</div>
+     <div className='green'>Green</div>
+     <div className='yellow'>Yellow</div>
+     <div className='orange'>Orange</div>
+     <div className='red'>Red</div>
     </>
   )
 }
