@@ -25,14 +25,14 @@ color: white;
 .green {
     width: 700px;
     height: 100px;
-    background-color: green;
-color: white;
+    background-color: rgb(30, 212, 30);
+
 }
 .yellow {
     width: 700px;
     height: 100px;
-    background-color: yellow;
-color: black;
+    background-color: rgb(241, 241, 33);
+
 }
 .orange {
     width: 700px;
@@ -43,6 +43,9 @@ color: white;
 .red {
     width: 700px;
     height: 100px;
-    background-color: red;
+    background-color: rgb(160, 3, 3);
+}
+.magenta, .violet, .blue, .green, .yellow, .orange, .red {
     color: white;
+    border-radius: 50px;
 }
