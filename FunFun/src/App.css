@@ -6,40 +6,43 @@ margin: 10px;
     width: 700px;
     height: 100px;
     background-color: magenta;
+    color: white;
+    border-radius: 50px;
 
 }
 .violet {
     width: 700px;
     height: 100px;
     background-color: purple;
-
+    color: white;
 }
 .blue {
     width: 700px;
     height: 100px;
     background-color: blue;
-
+color: white;
 }
 .green {
     width: 700px;
     height: 100px;
     background-color: green;
-
+color: white;
 }
 .yellow {
     width: 700px;
     height: 100px;
     background-color: yellow;
-
+color: black;
 }
 .orange {
     width: 700px;
     height: 100px;
     background-color: orange;
-
+color: white;
 }
 .red {
     width: 700px;
     height: 100px;
-    background-color: red;7
+    background-color: red;
+    color: white;
 }
