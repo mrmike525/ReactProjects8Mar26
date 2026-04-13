@@ -1,0 +1,68 @@
+.bigDiv {
+    width: 200px;
+    height: 200px;
+    /* border: 2px solid black; */
+    display: inline-block;
+    
+}
+.colorContainer {
+    position: relative;
+    left: 20%;
+    top: 10%;
+    
+}
+
+.magenta, .violet, .blue, .green, .yellow, .orange, .red {
+    color: white;
+    border-radius: 50px;
+    position: absolute;
+    /* display: none; */
+}
+
+.magenta {
+    width: 100px;
+    height: 125px;
+    background-color: magenta;
+    color: white;
+    border-radius: 50px;
+
+}
+.violet {
+    width: 100px;
+    height: 120px;
+    background-color: purple;
+    color: white;
+}
+.blue {
+    width: 100px;
+    height: 115px;
+    background-color: blue;
+color: white;
+}
+.green {
+    width: 100px;
+    height: 110px;
+    background-color: rgb(30, 212, 30);
+
+}
+.yellow {
+    width: 100px;
+    height: 105px;
+    background-color: rgb(241, 241, 33);
+
+}
+.orange {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+color: white;
+position: absolute;
+    left: 20px;
+}
+.red {
+    width: 100px;
+    height: 95px;
+    background-color: rgb(160, 3, 3);
+    position: relative;
+    left: 20px;
+}

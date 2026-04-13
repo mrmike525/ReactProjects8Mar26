@@ -1,51 +1,9 @@
+/* body {
+    background-color: black;
+} */
 .header a{
 margin: 10px;
+position: sticky;
+bottom: 10px;
 }
 
-.magenta {
-    width: 700px;
-    height: 100px;
-    background-color: magenta;
-    color: white;
-    border-radius: 50px;
-
-}
-.violet {
-    width: 700px;
-    height: 100px;
-    background-color: purple;
-    color: white;
-}
-.blue {
-    width: 700px;
-    height: 100px;
-    background-color: blue;
-color: white;
-}
-.green {
-    width: 700px;
-    height: 100px;
-    background-color: rgb(30, 212, 30);
-
-}
-.yellow {
-    width: 700px;
-    height: 100px;
-    background-color: rgb(241, 241, 33);
-
-}
-.orange {
-    width: 700px;
-    height: 100px;
-    background-color: orange;
-color: white;
-}
-.red {
-    width: 700px;
-    height: 100px;
-    background-color: rgb(160, 3, 3);
-}
-.magenta, .violet, .blue, .green, .yellow, .orange, .red {
-    color: white;
-    border-radius: 50px;
-}
