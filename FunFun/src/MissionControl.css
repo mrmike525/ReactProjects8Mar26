@@ -1,3 +1,15 @@
 .MissionControl {
     width: 50vw;
 }
+
+.mapContainer {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.map {
+    
+    justify-content: center;
+    margin: .2em;
+}

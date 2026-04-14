@@ -17,8 +17,10 @@ function MissionControl(){
      ];
      const [missionState, setMissionState] = useState(status[0]);
 return (
-    <MissionCard missionCount={missionCount} missionName={missionName} missionStatus={status} missionCrew={crew} missions={missions} missionState = {missionState} setMissionState={setMissionState}/>
-    
+  <>
+    <MissionCard missionCount={missionCount} missionName={missionName.map((item, idx)=>(<div><ul><li> {idx} {item} </li></ul></div>))} missionStatus={status} missionCrew={crew} missions={missions} missionState = {missionState} setMissionState={setMissionState}/>
+   <div className="mapContainer">{missionName.map((item)=>(<div className="map">{item}</div>))}</div>
+   </> 
 )
 }
 
