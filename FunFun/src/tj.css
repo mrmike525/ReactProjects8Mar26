@@ -1,0 +1,18 @@
+.parent {
+    height: 300px;
+    width: 300px;
+    border: 2px solid orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.childA {
+    width: 50px;
+    height: 50px;
+    border: 2px solid red;
+}
+.childB {
+    width: 50px;
+    height: 50px;
+    border: 2px solid yellow
+}

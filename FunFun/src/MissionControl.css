@@ -1,12 +1,19 @@
 body {
     background-color: black;
+    margin: 20px;
+    margin-top: 40px;
+}
+.contentContainer {
+    display: flex;
+    justify-content: start;
 }
 .CardContainer {
-    width: 65vw;
+    width: 400px;
     height: 90px;
     border: 1px solid white;
     color: white;
-    margin: 10px;
     display: flex;
+    padding: 10px;
+    justify-content: space-between;
     
 }
