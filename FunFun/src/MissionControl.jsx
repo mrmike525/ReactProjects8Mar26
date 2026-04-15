@@ -1,13 +1,13 @@
 import "./MissionControl.css"
 import MissionCard from "./MissionCard";
+import MissionAction from "./MissionAction";
 import { useState } from "react";
 
 function MissionControl({missions}){
     
     return(
      missions.map(({id, name, status, crew})=>
-      {return <div key={id}> 
-      <b>ID:</b>{id} <b>Name:</b>{name} <b>Status:</b>{status} <b>Crew:</b>{crew}</div>})
+      {return <div className="CardContainer"> <MissionCard id={id} name={name} status={status} crew={crew}/> <MissionAction/></div>})
       )}
 
 export default MissionControl;

@@ -1,15 +1,12 @@
-.MissionControl {
-    width: 50vw;
+body {
+    background-color: black;
 }
-
-.mapContainer {
-    margin: 2em;
+.CardContainer {
+    width: 65vw;
+    height: 90px;
+    border: 1px solid white;
+    color: white;
+    margin: 10px;
     display: flex;
-    flex-direction: column;
-}
-
-.map {
     
-    justify-content: center;
-    margin: .2em;
 }
