@@ -6,14 +6,16 @@ body {
 .contentContainer {
     display: flex;
     justify-content: start;
+    position: relative;
+    left: 20%;
 }
 .CardContainer {
     width: 400px;
     height: 90px;
-    border: 1px solid white;
+    border: 2px solid rgb(229, 6, 6);
     color: white;
     display: flex;
     padding: 10px;
     justify-content: space-between;
-    
+ margin: 5px;   
 }

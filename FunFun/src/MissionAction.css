@@ -6,3 +6,11 @@
 .MissionButtonContainer {
     justify-content: end;
 }
+.launch {
+        border-radius: 100%;
+        box-shadow: none;
+
+        &::before,
+        &::after {
+            border-radius: 100%;
+        }

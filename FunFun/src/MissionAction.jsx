@@ -3,7 +3,7 @@ function MissionAction(){
     return(
         <div className="MissionButtonContainer">
             <div className="MissionButton">
-        <button>Launch Mission</button>
+        <button className="launch">Launch Mission</button>
         <button>Complete</button>
         </div>
    </div>
