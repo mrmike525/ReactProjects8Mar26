@@ -8,9 +8,9 @@
 }
 .launch {
         border-radius: 100%;
-        box-shadow: none;
-
-        &::before,
-        &::after {
-            border-radius: 100%;
-        }
+        position: relative;
+        bottom: 6px;
+}
+.pause {
+    font-size: 12px;
+}

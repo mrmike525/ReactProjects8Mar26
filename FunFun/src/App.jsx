@@ -72,7 +72,7 @@ function App() {
 
   return (
     <>
-    <MissionControl missions={missions}/>
+    <MissionControl missions={missions} missionStatus={status}/>
      
     </>
   )
