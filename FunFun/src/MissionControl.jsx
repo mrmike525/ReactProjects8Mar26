@@ -1,6 +1,7 @@
 import "./MissionControl.css"
 import MissionCard from "./MissionCard";
 import MissionAction from "./MissionAction";
+import MissionFilter from "./MissionFilter";
 import { useState } from "react";
 
 function MissionControl({missions, missionStatus}){
@@ -16,6 +17,7 @@ function MissionControl({missions, missionStatus}){
     }
     return(
         <>
+        <MissionFilter updateMissionStatus={updateMissionStatus}/>
      {missionList.map(({id, name, status, crew})=>{
         return (
         <div key={id} className="contentContainer"> 
@@ -27,16 +29,10 @@ function MissionControl({missions, missionStatus}){
       crew={crew} 
       /> 
       
-      <MissionAction
-      id={id} 
-      updateMissionStatus={updateMissionStatus}
-      missionStatus={missionStatus} 
-      />
-      </div>
-      </div>
-      );
-    })}
-    </>
+      <MissionAction id={id} updateMissionStatus={updateMissionStatus} missionStatus={missionStatus} />
+      </div></div>);})}
+      
+     </>
 );
 }
 

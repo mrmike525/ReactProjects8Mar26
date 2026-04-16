@@ -1,0 +1,12 @@
+.header {
+    width: 400px;
+    border: 2px solid rgb(78, 15, 240);
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}
+.header button {
+    position: relative;
+    width: 100%;
+    
+}
