@@ -6,6 +6,7 @@ import { useState } from "react";
 
 function MissionControl({missions, missionStatus}){
     const [missionList, setMissionList] = useState(missions);
+    const [savedList, setSavedList] = useState(null);
     function updateMissionStatus(id, newStatus){
         setMissionList((prevMissions) =>
         prevMissions.map((mission) =>
@@ -17,7 +18,7 @@ function MissionControl({missions, missionStatus}){
     }
     return(
         <>
-        <MissionFilter updateMissionStatus={updateMissionStatus}/>
+        <MissionFilter setMissionList={setMissionList} missionList={missionList} savedList={savedList} setSavedList={setSavedList}/>
      {missionList.map(({id, name, status, crew})=>{
         return (
         <div key={id} className="contentContainer"> 
