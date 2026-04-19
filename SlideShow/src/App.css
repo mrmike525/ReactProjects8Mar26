@@ -1,0 +1,34 @@
+.spanContainer {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 60px;
+    bottom: 50px;
+    /* margin-top: 10px; */
+    z-index: -1;
+    border-radius: 400px;
+    overflow: hidden;
+    /* border: 2px solid red; */
+}
+.a {
+    position: relative;
+    width: 50%;
+    background-color: rgb(54, 179, 229);
+}
+.b {
+    position: relative;
+    width: 50%;
+    background-color: rgb(80, 188, 80);
+}
+.headlinerContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    right: 50px;
+}
+.headliner {
+    color: red;
+    /* justify-content: center; */
+}
