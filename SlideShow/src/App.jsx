@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SlideShow from './SlideShow'
 import heroImg from './assets/hero.png'
+import Form from './Form'
 import './App.css'
 
 function App() {
@@ -9,14 +10,25 @@ function App() {
   
   return (
     <>
-      <span className='headlinerContainer'>
+    <Form/>
+
+
+
+    
+    
+    
+    
+      {/* <span className='headlinerContainer'>
       <h1 className='headliner' onClick={()=>(style={color: colors[0]})}>Introducing the Family!</h1>
       </span>
         <SlideShow />
       <div className='spanContainer'>
         <span className='a' />
         <span className='b' />
-      </div>
+      </div> */}
+    
+    
+    
     </>
   )
 }
