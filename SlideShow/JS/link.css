@@ -1,0 +1,32 @@
+.greeting {
+    color: red
+}
+
+.diceContainer {
+display: flex;
+flex-direction: row;
+width: 300px;
+height: 300px;
+border: 2px solid black;
+}
+
+.diceOne, .diceTwo, .diceThree, .diceFour, .diceFive, .diceSix {
+    width: 50px;
+    height: 50px;
+    border: 1px solid red;
+    position: relative;
+    top: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(40, 151, 47);
+}
+
+.diceParent {
+display: flex;
+flex-direction: row;
+width: 300px;
+height: 300px;
+border: 2px solid black;
+justify-content: center;
+}
