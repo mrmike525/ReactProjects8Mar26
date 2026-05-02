@@ -1,0 +1,17 @@
+/* body {
+    margin: 20px;
+    background-color: rgb(17, 54, 236);
+} */
+.header {
+    color: rgb(238, 147, 29);
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 20%;
+
+}
+* {
+    font-family: "Playfair Display";
+}
