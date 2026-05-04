@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Abby from './Abby'
 import './App.css'
-
+import ShoppingList from './ShoppingList'
 function App() {
   const initialState = {
     username: "", 
@@ -23,16 +23,20 @@ function App() {
   }
   return (
     <>
-    <form action="" onSubmit={handleSubmit} >
+
+    <ShoppingList/>
+    <div className='daFormDiv'>
+    <form className='daForm' action="" onSubmit={handleSubmit} >
       <label htmlFor="username">Username</label>
       <input type="text" value={typedValue.username} onChange={handleChange} placeholder='username' name='username' id='username'/>
       <label htmlFor="email">Email</label>
-      <input type="email" value={typedValue.email} onChange={handleChange} placeholder='email' name='email' id='email'/>
+      <input id="email" type="email" value={typedValue.email} onChange={handleChange} placeholder='email' name='email' id='email'/>
       <label htmlFor="password">Password</label>
       <input type="text" value={typedValue.password} onChange={handleChange} placeholder='password' name='password' id='password'/>
       <button>Submit</button>
       
       </form>
+      </div>
       <div>{typedValue.name}</div>
     </>
   )

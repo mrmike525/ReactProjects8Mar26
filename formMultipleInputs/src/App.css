@@ -1,0 +1,20 @@
+.daFormDiv {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    width: 250px;
+    justify-content: flex-start;
+    position: relative;
+    left: 100px;
+    top: 100px;
+    margin: 20px;
+
+}
+
+.daForm input{
+    margin-left: 12px;
+    
+}
+#email {
+    margin-left: 40px;
+}
