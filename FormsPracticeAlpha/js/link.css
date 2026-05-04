@@ -1,0 +1,17 @@
+.diceContainer {
+    display: flex;
+    flex-direction: column;
+    /* width: 500px; */
+    height: 2000px;
+    border: 2px solid red;
+    justify-content: start;
+    align-items: center;
+}
+.diceOne, .diceTwo, .diceThree, .diceFour, .diceFive, .diceSix {
+    /* width: 60%; */
+    height: 15%;
+    border: 1px solid green;
+    position: relative;
+    /* top: 30%; */
+
+}
