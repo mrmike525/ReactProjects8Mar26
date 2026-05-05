@@ -1,7 +1,7 @@
 const API_URL = "https://rithm-jeopardy.herokuapp.com/api/"; 
 // full API_URL (TO GET ALL CATEGORIES) `https://rithm-jeopardy.herokuapp.com/api/categories?
 // count=100`
-const NUMBER_OF_CATEGORIES = 90; 
+const NUMBER_OF_CATEGORIES = 1; 
 // API URL TO GET SELECTED NUMBER OF CATEGORIES `https://rithm-jeopardy.herokuapp.com/api/category?
 // id=2`
 const NUMBER_OF_CLUES_PER_CATEGORY = 5; 
@@ -41,20 +41,19 @@ async function getCategoryIds ()
 getCategoryIds();
 
 async function getCategoryData (categoryId = 2)
-
 {
-    
-  const categoryWithClues = [{
+    const categoryWithClues = [{
     id: categoryId,
     title: undefined, 
     clues: [] 
   }];
   categoryWithClues.push(await axios.get(`${API_URL}category?id=${categoryId}`));
   const dataWithClues = categoryWithClues.map(item => item)
-
+categories.push(await axios.get(`${API_URL}category?id=${categoryId}`));
 const {data} = dataWithClues[1];
 const cluesData = [];
-cluesData.unshift(data)
+  cluesData.push(data);
+  console.log(cluesData);
 console.log(cluesData[0].clues[0].value)
 fillTable(cluesData[0], cluesData[0].clues)
   return cluesData;
@@ -74,7 +73,6 @@ function fillTable ({title}, values)
     clueValue.append(categoryScore);
   categoryScore.innerText = values[x].value;
   }
-  
 // [0].value
 }
 
@@ -110,3 +108,4 @@ function handleClickOfActiveClue (event)
     }
   }
 }
+console.log(categories);
