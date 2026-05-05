@@ -35,7 +35,7 @@ diceContainer.append(diceSix);
 function randomNum() {
     return Math.floor((Math.random() * 10) + 1)
 }
-const picArray = ["AbbyAndI.jpeg", "AbbyLook.jpeg", "CoolCar.jpeg", "I.jpeg", "Lynx.jpeg", "WaterFountain.jpeg"];
+const picArray = ["AbbyAndI.jpeg", "AbbyLook.jpeg", "CoolCar.jpeg", "I.jpeg", "Lynx.jpeg", "WaterFountain.jpeg", "BeccaAndAbby.jpeg"];
 
 const imageOne = document.createElement('img');
 imageOne.src = `./assets/${picArray[0]}`;
@@ -78,3 +78,10 @@ diceSix.append(imageSix);
 imageSix.style.display = "relative"
 imageSix.style.width = "100%"
 imageSix.style.height = "100%"
+
+const imageSeven = document.createElement('img');
+imageSeven.src = `./assets/${picArray[6]}`;
+diceSix.append(imageSeven);
+imageSeven.style.display = "relative"
+imageSeven.style.width = "100%"
+imageSeven.style.height = "100%"
