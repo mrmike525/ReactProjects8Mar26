@@ -30,3 +30,8 @@ height: 100%;
 th {
   width: 30%;
 } */
+
+section {
+  width: 100px;
+  display: inline-block;
+}
