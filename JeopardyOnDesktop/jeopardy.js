@@ -96,26 +96,4 @@ function handleClickOfActiveClue(event) {
 }
 console.log(categories);
 
-function createTable() {
-  const body = document.body;
-  let table = document.createElement("table");
-  body.append(table);
-  table.style.border = "2px solid orange";
-  table.style.width = "100px";
-  table.style.height = "100px";
-  let caption = document.createElement("caption");
-  caption.innerText = "Jeopardy";
-  table.append(caption);
-  const row1 = document.createElement("tr");
-  caption.append(row1);
-  let tableHead = document.createElement("tableHead");
-  tableHead.innerText = "Category";
-  row1.append(tableHead);
-  const row2 = document.createElement("tr");
-  row1.append(row2);
-  const clue1 = document.createElement("td");
-  clue1.innerText = "100";
-  row2.append(clue1);
-}
 
-createTable();
