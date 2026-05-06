@@ -30,7 +30,7 @@ function createTable(data = "", cat =[{title: "placeholder"}]) {
   
     console.log(cat)
     const {title} = cat[0];
-    const {value, question, answer} = cat[0].clues[0]
+    const {value, question, answer} = cat[0].clues[0];
     const body = document.body;
     const tableDiv = document.createElement('div');
     tableDiv.className = "tableDiv";
