@@ -1,0 +1,24 @@
+.headContainer {
+    position: relative;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     font-family: "Stack Sans Notch", sans-serif;
+}
+.headImage {
+    width: 380px;
+    border-radius: 500px;
+    border: 5px solid yellow;
+    margin-top: -20px;
+    /* width: 10px */
+}
+
+.summary {
+    display: none;
+    
+}
+.summary:hover {
+   background-color: #f4f4f4;;
+}
