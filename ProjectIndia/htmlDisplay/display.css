@@ -1,0 +1,24 @@
+.textContainer {
+    position: absolute;
+    bottom: 42%;
+    left: 10%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 50px;
+}
+.mainText {
+    font-size: 40px;
+    font-family: "Cinzel", serif;
+    color: rgb(229, 106, 24);
+    
+}
+img {
+    height: 760px
+}
+.contactDiv {
+    position: relative;
+   bottom: 35px;
+   font-size: 20px;
+   width: 25%;
+   display: flex;
+   justify-content: space-between;
+}

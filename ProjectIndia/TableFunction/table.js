@@ -1,4 +1,5 @@
-function createTable(categorys = 5, category = "catTest", clueObject, fullClueObject, {dollar}){
+const jeopardy = new Audio("./assets/Jeopardy.mp3");
+function createTable(categorys = 5, category = "catTest", clueObject, fullClueObject, { dollar }) {
     const body = document.body;
     // structure of the table seperated by elements
     const tableDiv = document.createElement('div');
@@ -151,12 +152,14 @@ table.append(tableBody)
     body.style.flexDirection = "column";
     resetButton.style.fontSize = "35px";
     resetButton.style.marginTop = "25px";
-    // resetButton.style.color = "red"
 
     resetButton.addEventListener('click', (evt) => {
         tableDiv.remove();
         evt.target.remove();
         button();
+        jeopardy.pause();
+        jeopardy.currentTime = 0;
+    // “Jeopardy Sound effect from https://quicksounds.com“
 
     })
     caption.style.fontSize = "100px"
@@ -186,6 +189,11 @@ const cluesMapped = clues.map(({ value }) => value);
 
 function StartGame() {
     createTable(differentCategorys.length, mapped, cluesMapped, clues, clues[0]);
+    
+jeopardy.play();
+    // “Jeopardy Sound effect from https://quicksounds.com“
+    
+
 }
 
 const button = () => {
@@ -198,6 +206,7 @@ const button = () => {
     buttonDiv.addEventListener('click', (evt) => {
         StartGame();
         evt.target.remove();
+        cluePopUp();
     })
     // styling
     buttonDiv.style.display = "flex";
@@ -212,4 +221,49 @@ const button = () => {
     
 }
 button();
+
+function cluePopUp() {
+    // create Items
+    const body = document.body;
+    const popUp = document.createElement('div');
+    const question = document.createElement('p');
+    question.innerText = "Question: This is a category test question?.";
+    const answerInput = document.createElement('input');
+    answerInput.placeholder = "Enter your answer Here";
+    const answerButton = document.createElement('button');
+    answerButton.innerText = "Submit Answer";
+    const answerDiv = document.createElement('div');
+
+    // style items
+    popUp.style.width = "1000px"
+    popUp.style.height = "400px";
+    popUp.style.border = "4px solid blue";
+    popUp.style.margin = "20px";
+    popUp.style.position = "absolute";
+    popUp.style.backgroundColor = "grey";
+    popUp.style.zIndex = "2";
+    popUp.style.display = "flex";
+    popUp.style.justifyContent = "center";
+    popUp.style.alignItems = "center";
+    popUp.style.fontSize = "35px";
+    popUp.style.flexDirection = "column";
+    answerInput.style.marginRight = "10px";
+    answerInput.style.width = "300px";
+    answerInput.style.fontSize = "25px"
+
+    // append items
+    body.append(popUp);
+    popUp.append(question);
+    popUp.append(answerDiv);
+    answerDiv.append(answerInput);
+    answerDiv.append(answerButton);
+    
+    // event listener
+    answerButton.addEventListener('click', (evt) => {
+        console.log(evt.target.tagName)
+        popUp.classList.add('hidden');
+        console.log(popUp.className)
+    });
+    
+}
 
