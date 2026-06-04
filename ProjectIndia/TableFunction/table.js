@@ -248,12 +248,12 @@ function cluePopUp() {
     answerButton.addEventListener('click', (evt) => {
         console.log(evt.target.tagName)
         // popUp.classList.remove('popUp');
-        // popUp.classList.add('hidden');
-        popUp.style.display = "none";
+        popUp.classList.add('hidden');
+        // popUp.style.display = "none";
         console.log(popUp.className);
     }); 
 }
 function returnPopUp() {
     const popUp = document.querySelector('.popUp');
-    popUp.style.display = "flex";
+    popUp.classList.remove("hidden");
 }

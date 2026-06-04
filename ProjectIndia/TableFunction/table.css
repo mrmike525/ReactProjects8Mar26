@@ -98,3 +98,7 @@ color: rgba(237, 199, 32, 1);
     width: 300px;
     font-size: 25px;
 }
+.popUp.hidden {
+    display: none;
+}
+
