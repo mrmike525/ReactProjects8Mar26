@@ -1,18 +1,25 @@
 const jeopardy = new Audio("./assets/Jeopardy.mp3");
+
 function createTable(categorys = 5, category = "catTest", clueObject, fullClueObject, { dollar }) {
     const body = document.body;
-    // structure of the table seperated by elements
+    body.classList.add("body")
+    
+    // creating structures of the table seperated by elements
     const tableDiv = document.createElement('div');
-
+    tableDiv.classList.add("tableDiv");
+    
     const table = document.createElement('table');
-
+    table.classList.add("table");
+    
     const caption = document.createElement('caption');
+    caption.classList.add("caption");
     caption.innerText = "Jeopardy";
 
     const tableHead = document.createElement('thead');
-
-    const headerRow = document.createElement('tr');
+    caption.classList.add("tableHead");
     
+    const headerRow = document.createElement('tr');
+    caption.classList.add("headerRow");
     // assembly of the top of the table with category headers && thead
         body.append(tableDiv);
         tableDiv.append(table);
@@ -25,27 +32,29 @@ function createTable(categorys = 5, category = "catTest", clueObject, fullClueOb
         if (category[x] === undefined) {
             continue
         } else {
-            categoryHeads.innerText = category[x]
-            categoryHeads.style.color = "rgb(255,255,255)"
+            categoryHeads.innerText = category[x];
+            categoryHeads.classList.add("categoryHeads");
+            
             headerRow.append(categoryHeads);
 
         }
     }
 // begin clue building and tableBody
-const tableBody = document.createElement('tbody');
-table.append(tableBody)
+    const tableBody = document.createElement('tbody');
+    tableBody.classList.add("tableBody");
+    table.append(tableBody);
     //another loop for the amount of clues(question,answers,points object for each category) (outerLoop);
     for(let y = 1; y <= categorys; y++){
         const clueRow = document.createElement('tr');
+        clueRow.classList.add("clueRow");
         tableBody.append(clueRow)
         // InnerLoop  
     for(let x = 0; x < category.length; x++){
         const clue = document.createElement('td');
+        clue.classList.add("clue");
         clue.innerText = dollar + clueObject[x];
-        clue.classList.add(`${category[x]}`)
-        clue.style.border = "2px solid blue";
-        clue.style.color = "rgba(237, 177, 37, 1)"
-        clue.style.border = "4px solid black"
+        clue.classList.add(`${category[x]}`);
+        
         clueRow.append(clue);
         console.log(clueObject);
         }
@@ -53,21 +62,25 @@ table.append(tableBody)
     
     // bottom of the table separated by elements
     const tableFoot = document.createElement('tfoot');
-    
+    tableFoot.classList.add("tableFoot");
+
     const footerRow = document.createElement('tr');
+    footerRow.classList.add("footerRow");
 
     const playerOneScore = document.createElement('th');
+    playerOneScore.classList.add("playerOneScore")
     playerOneScore.setAttribute("colspan", "3");
     const scoreObject = [{Name: "PlayerOne", Score: 0},
         {Name: "PlayerTwo", Score: 0}
     ]
     playerOneScore.innerText = scoreObject[0].Name + " " + scoreObject[0].Score;
-    playerOneScore.style.color = "rgba(237, 199, 32, 1)"
+    
 
     const playerTwoScore = document.createElement('th');
+    playerTwoScore.classList.add("playerTwoScore");
     playerTwoScore.setAttribute("colspan", "3");
     playerTwoScore.innerText = scoreObject[1].Name + " " + scoreObject[1].Score;
-    playerTwoScore.style.color = "rgba(237, 199, 32, 1)"
+    
 
 
     // bottom of table assembly
@@ -76,19 +89,7 @@ table.append(tableBody)
     footerRow.append(playerOneScore);
     footerRow.append(playerTwoScore)
 
-    // tableStyling
-    tableDiv.style.display = "flex";
-    tableDiv.style.justifyContent = "center";
-    tableDiv.style.border = "4px solid rgb(27, 76, 225)";
-    table.style.border = "4px solid rgb(249, 196, 19)";
-    table.style.fontSize = "40px";
-    table.style.backgroundColor = "rgb(28, 45, 234)";
-    caption.style.backgroundColor = "rgb(28,45,234)";
-    caption.style.color = "rgb(255,255,255)"
-    body.style.display = "flex";
-    body.style.justifyContent = "center";
-    body.style.alignItems = "center";
-    body.style.margin = "30px";
+    
     
     const updateScore = (value) => { scoreObject[0].Score += value;  playerOneScore.innerText = scoreObject[0].Name + " " + scoreObject[0].Score;};
 
@@ -147,11 +148,11 @@ table.append(tableBody)
         console.log(fullClueObject[0].Answer)
     })
     const resetButton = document.createElement('button');
+    resetButton.classList.add("resetButton");
     resetButton.innerText = "Reset Game";
     body.append(resetButton);
-    body.style.flexDirection = "column";
-    resetButton.style.fontSize = "35px";
-    resetButton.style.marginTop = "25px";
+    
+    
 
     resetButton.addEventListener('click', (evt) => {
         tableDiv.remove();
@@ -162,7 +163,6 @@ table.append(tableBody)
     // “Jeopardy Sound effect from https://quicksounds.com“
 
     })
-    caption.style.fontSize = "100px"
 }
 
 const differentCategorys = [
@@ -198,9 +198,14 @@ jeopardy.play();
 
 const button = () => {
     const body = document.body;
+
     const buttonDiv = document.createElement('div');
+    buttonDiv.classList.add("buttonDiv");
+    
     const makeButton = document.createElement('button');
+    makeButton.classList.add("makeButton");
     makeButton.innerText = "Click Me to start a game of Jeopardy!";
+    
     body.append(buttonDiv);
     buttonDiv.append(makeButton);
     buttonDiv.addEventListener('click', (evt) => {
@@ -208,17 +213,6 @@ const button = () => {
         evt.target.remove();
         cluePopUp();
     })
-    // styling
-    buttonDiv.style.display = "flex";
-    buttonDiv.style.alignContent = "center";
-    buttonDiv.style.justifyContent = "center";
-    buttonDiv.style.position = "absolute";
-    buttonDiv.style.top = "40%";
-    buttonDiv.style.left = "20%";
-    makeButton.style.fontSize = "50px";
-    makeButton.style.backgroundColor = "white";
-    
-    
 }
 button();
 
@@ -226,30 +220,22 @@ function cluePopUp() {
     // create Items
     const body = document.body;
     const popUp = document.createElement('div');
-    const question = document.createElement('p');
-    question.innerText = "Question: This is a category test question?.";
-    const answerInput = document.createElement('input');
-    answerInput.placeholder = "Enter your answer Here";
-    const answerButton = document.createElement('button');
-    answerButton.innerText = "Submit Answer";
-    const answerDiv = document.createElement('div');
+    popUp.classList.add("popUp");
 
-    // style items
-    popUp.style.width = "1000px"
-    popUp.style.height = "400px";
-    popUp.style.border = "4px solid blue";
-    popUp.style.margin = "20px";
-    popUp.style.position = "absolute";
-    popUp.style.backgroundColor = "grey";
-    popUp.style.zIndex = "2";
-    popUp.style.display = "flex";
-    popUp.style.justifyContent = "center";
-    popUp.style.alignItems = "center";
-    popUp.style.fontSize = "35px";
-    popUp.style.flexDirection = "column";
-    answerInput.style.marginRight = "10px";
-    answerInput.style.width = "300px";
-    answerInput.style.fontSize = "25px"
+    const question = document.createElement('p');
+    question.classList.add("question");
+    question.innerText = "Question: This is a category test question?.";
+    
+    const answerInput = document.createElement('input');
+    answerInput.classList.add("answerInput");
+    answerInput.placeholder = "Enter your answer Here";
+    
+    const answerButton = document.createElement('button');
+    answerButton.classList.add("answerButton");
+    answerButton.innerText = "Submit Answer";
+
+    const answerDiv = document.createElement('div');
+    answerDiv.classList.add("answerDiv");
 
     // append items
     body.append(popUp);
@@ -261,9 +247,13 @@ function cluePopUp() {
     // event listener
     answerButton.addEventListener('click', (evt) => {
         console.log(evt.target.tagName)
-        popUp.classList.add('hidden');
-        console.log(popUp.className)
-    });
-    
+        // popUp.classList.remove('popUp');
+        // popUp.classList.add('hidden');
+        popUp.style.display = "none";
+        console.log(popUp.className);
+    }); 
 }
-
+function returnPopUp() {
+    const popUp = document.querySelector('.popUp');
+    popUp.style.display = "flex";
+}
