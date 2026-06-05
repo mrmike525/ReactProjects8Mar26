@@ -257,3 +257,20 @@ function returnPopUp() {
     const popUp = document.querySelector('.popUp');
     popUp.classList.remove("hidden");
 }
+const pushed = [];
+async function getCategorys() {
+    let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
+count=100`);
+    let extracted = result.data;
+        pushed.push(
+            ...extracted.map(({ id, title, clues_count }) => ({
+                id, 
+                title, 
+                clues_count 
+            }))
+        );
+        console.log(pushed);
+    }
+    getCategorys();
+   
+   
