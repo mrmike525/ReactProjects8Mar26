@@ -1,4 +1,9 @@
 const jeopardy = new Audio("./assets/Jeopardy.mp3");
+const categories = [];
+const individualCategorie = [];
+
+getCategories(5);
+getIndividualCategories(3);
 
 function createTable(categorys = 5, category = "catTest", clueObject, fullClueObject, { dollar }) {
     const body = document.body;
@@ -183,8 +188,8 @@ const clues = [
 ]
 console.log(differentCategorys)
 
-const mapped = differentCategorys.map(({ category }) =>  category)
-console.log(mapped);
+
+// categories[0].title
 const cluesMapped = clues.map(({ value }) => value);
 
 function StartGame() {
@@ -257,20 +262,62 @@ function returnPopUp() {
     const popUp = document.querySelector('.popUp');
     popUp.classList.remove("hidden");
 }
-const pushed = [];
-async function getCategorys() {
+
+async function getCategories(count = 100) {
     let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
-count=100`);
-    let extracted = result.data;
-        pushed.push(
+count=${count}`);
+    let extracted = await result.data;
+    const categories = [];
+        categories.push(
             ...extracted.map(({ id, title, clues_count }) => ({
                 id, 
                 title, 
                 clues_count 
             }))
         );
-        console.log(pushed);
+    console.log(categories);
+    return categories
     }
-    getCategorys();
+
+
+async function getIndividualCategories(id = 2) {
+        let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/category?
+id=${id}`)
+    let extracted =  await result.data;
+    individualCategorie.push(extracted);
+    console.log(individualCategorie)
+}
+
+const mapped = categories.map(({ title }) =>  (title))
+console.log(mapped);
    
-   
+async function getCategoriesTwo(count = 100) {
+    let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
+count=${count}`);
+    let extracted = await result.data;
+    const categories = [];
+        categories.push(
+            ...extracted.map(({ id, title, clues_count }) => ({
+                id, 
+                title, 
+                clues_count 
+            }))
+        );
+    console.log(extracted);
+    return categories
+}
+let x = [];
+
+const preload = async () => {
+    await jump();
+    console.log(x); 
+    createTable(x.length, x, cluesMapped, clues, clues[0]);
+};
+preload();
+    async function jump(){
+    let y = await getCategoriesTwo(12);
+        x = y.map(({title})=>title)
+        // console.log(x);
+            
+};
+console.log(x);
