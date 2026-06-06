@@ -1,7 +1,7 @@
 const jeopardy = new Audio("./assets/Jeopardy.mp3");
 
 getCategoriesTwo(5);
-getIndividualCategories(3);
+getIndividualCategories(4);
 
 function createTable(categorys = 5, category = "catTest", clueObject, fullClueObject, { dollar }) {
     const body = document.body;
@@ -272,11 +272,14 @@ console.log(result.data.clues);
 const {data} = result;
 console.log(data);
 
-const clues = data.clues.map(item => item);
-const extractedData = {title: data.title, id: data.id, clues: [...clues]};
-console.log(extractedData.title);
+const clues = data.clues
+const extractedData = {category: data.title, id: data.id, clues: [...clues]};
+console.log(extractedData)
+console.log(extractedData.category);
 console.log(extractedData.id);
-console.log(extractedData.clues.map(({question, answer, value}) => `Question: ${question} Answer: ${answer} Value: ${value}`));
+// console.log(extractedData.clues.map(({question, answer, value}) => {
+//     [{Question: question, Answer: answer, value: value}]
+// }));
 
 }
    
