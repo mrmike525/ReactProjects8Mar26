@@ -1,8 +1,6 @@
 const jeopardy = new Audio("./assets/Jeopardy.mp3");
-const categories = [];
-const individualCategorie = [];
 
-getCategories(5);
+getCategoriesTwo(5);
 getIndividualCategories(3);
 
 function createTable(categorys = 5, category = "catTest", clueObject, fullClueObject, { dollar }) {
@@ -263,33 +261,24 @@ function returnPopUp() {
     popUp.classList.remove("hidden");
 }
 
-async function getCategories(count = 100) {
-    let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
-count=${count}`);
-    let extracted = await result.data;
-    const categories = [];
-        categories.push(
-            ...extracted.map(({ id, title, clues_count }) => ({
-                id, 
-                title, 
-                clues_count 
-            }))
-        );
-    console.log(categories);
-    return categories
-    }
 
 
 async function getIndividualCategories(id = 2) {
         let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/category?
-id=${id}`)
-    let extracted =  await result.data;
-    individualCategorie.push(extracted);
-    console.log(individualCategorie)
-}
+id=${id}`);
+console.log(result.data.title);
+console.log(result.data.id);
+console.log(result.data.clues);
+const {data} = result;
+console.log(data);
 
-const mapped = categories.map(({ title }) =>  (title))
-console.log(mapped);
+const clues = data.clues.map(item => item);
+const extractedData = {title: data.title, id: data.id, clues: [...clues]};
+console.log(extractedData.title);
+console.log(extractedData.id);
+console.log(extractedData.clues.map(({question, answer, value}) => `Question: ${question} Answer: ${answer} Value: ${value}`));
+
+}
    
 async function getCategoriesTwo(count = 100) {
     let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/categories?
