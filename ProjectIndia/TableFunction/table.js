@@ -184,7 +184,7 @@ const clues = [
     { id: 5, category: "Soccer", Question: "In the sport of soccer, what is the ball called?", Answer: "SoccerBall", value: 100, dollar: "$" },
     {id: 6, category: "Ninjas", Question: "Ninjas often perform this type of action?", Answer: "Kung Fu", value: 100, dollar: "$"},
 ]
-console.log(differentCategorys)
+// console.log(differentCategorys)
 
 
 // categories[0].title
@@ -266,21 +266,13 @@ function returnPopUp() {
 async function getIndividualCategories(id = 2) {
         let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/category?
 id=${id}`);
-console.log(result.data.title);
-console.log(result.data.id);
-console.log(result.data.clues);
 const {data} = result;
-console.log(data);
 
 const clues = data.clues
 const extractedData = {category: data.title, id: data.id, clues: [...clues]};
 console.log(extractedData)
 console.log(extractedData.category);
-console.log(extractedData.id);
-// console.log(extractedData.clues.map(({question, answer, value}) => {
-//     [{Question: question, Answer: answer, value: value}]
-// }));
-
+console.log(extractedData.clues.map(({value})=>value));
 }
    
 async function getCategoriesTwo(count = 100) {
@@ -295,7 +287,6 @@ count=${count}`);
                 clues_count 
             }))
         );
-    console.log(extracted);
     return categories
 }
 let x = [];
@@ -303,11 +294,14 @@ let x = [];
 const preload = async () => {
     await jump();
     console.log(x); 
-    createTable(x.length, x, cluesMapped, clues, clues[0]);
+    // const cluesMapped = clues.map(({ value }) => value);
+    createTable(5, x, cluesMapped, clues, clues[0]);
 };
+
 preload();
-    async function jump(){
-    let y = await getCategoriesTwo(12);
+
+async function jump() {
+    let y = await getCategoriesTwo(14);
         x = y.map(({title})=>title)
         // console.log(x);
             
