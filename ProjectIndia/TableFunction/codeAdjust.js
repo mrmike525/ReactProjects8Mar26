@@ -145,8 +145,13 @@ function createTable(
     // event listener with logic to perform on click
     resetButton.addEventListener('click', (evt) => {
         tableDiv.remove();
+        const popUp = document.querySelector('.popUp');
+        popUp.classList.add('hidden');
         evt.target.remove();
         makeStartButton();
+        popUp.remove();
+        jeopardy.pause();
+            jeopardy.currentTime = 0;
     })
 }
 
@@ -167,6 +172,7 @@ const makeStartButton = () => {
     startButtonDiv.addEventListener('click', (evt) => {
         firstLoad();
         startButtonDiv.remove();
+        
         
     })
 }
@@ -264,7 +270,7 @@ const firstLoad = async () => {
 
 
     async function secondLoad(){
-    let y = await getCategories(6);
+    let y = await getCategories(20);
     extractedCategorys = [];
         y.forEach(
             function({title, id}){
