@@ -97,8 +97,7 @@ function createTable(
     footerRow.append(playerTwoScore);
 
     
-    // update score function currently only first player supported
-    const updateScore = (value) => { scoreObject[0].Score += value;  playerOneScore.innerText = scoreObject[0].Name + " " + scoreObject[0].Score;};
+
 
     // active cell hover listener
     tableDiv.addEventListener('mouseover', (evt)=>{
@@ -129,9 +128,28 @@ function createTable(
             console.log(id)
             await preLoad(id);
             cluePopUp(id, innerTextValue);
+            evt.target.innerText = "✅"
             jeopardy.play();
     
         } 
+         // event listener
+    answerButton.addEventListener('click', (evt) => {
+        console.log(evt.target.tagName);
+        if(question.innerText === extractedClue.question){
+            jeopardy.pause();
+            jeopardy.currentTime = 0;
+            question.innerText = extractedClue.answer;
+        } else if(question.innerText === extractedClue.answer)
+            {popUp.classList.add('hidden');
+            updatePlayerOneScore(value);
+        console.log(popUp.className);
+        }
+    }); 
+    // update score function currently only first player supported
+    function updatePlayerOneScore(value){
+        scoreObject[0].Score += value;
+        playerOneScore.innerText = scoreObject[0].Name + " " + scoreObject[0].Score;
+    };
         
     })
 
@@ -146,12 +164,15 @@ function createTable(
     resetButton.addEventListener('click', (evt) => {
         tableDiv.remove();
         const popUp = document.querySelector('.popUp');
+        
+        // console.log(popUp)
         popUp.classList.add('hidden');
-        evt.target.remove();
+        
         makeStartButton();
         popUp.remove();
         jeopardy.pause();
             jeopardy.currentTime = 0;
+        
     })
 }
 
@@ -228,24 +249,13 @@ function cluePopUp(classIDValue, innerTextValue) {
     answerDiv.append(musicDisclaimerLink);
     
     
-    // event listener
-    answerButton.addEventListener('click', (evt) => {
-        console.log(evt.target.tagName);
-        if(question.innerText === extractedClue.question){
-            jeopardy.pause();
-            jeopardy.currentTime = 0;
-            question.innerText = extractedClue.answer;
-        } else if(question.innerText === extractedClue.answer){
-        popUp.classList.add('hidden');
-        console.log(popUp.className);
-        }
-    }); 
+   
 }
 function returnPopUp() {
     const popUp = document.querySelector('.popUp');
     popUp.classList.remove("hidden");
 }
-
+    
 
 // get main categorys and individual categorys
 let extractedCategorys = [];
@@ -270,7 +280,7 @@ const firstLoad = async () => {
 
 
     async function secondLoad(){
-    let y = await getCategories(20);
+    let y = await getCategories(2);
     extractedCategorys = [];
         y.forEach(
             function({title, id}){

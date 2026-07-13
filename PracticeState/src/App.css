@@ -1,0 +1,15 @@
+.addOneDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  /* border: 2px solid black; */
+  position: absolute;
+  left: 20vw;
+  top: 10vh;
+}
+
+.addOneButton {
+  width: 80px
+}
