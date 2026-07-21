@@ -132,24 +132,7 @@ function createTable(
             jeopardy.play();
     
         } 
-         // event listener
-    answerButton.addEventListener('click', (evt) => {
-        console.log(evt.target.tagName);
-        if(question.innerText === extractedClue.question){
-            jeopardy.pause();
-            jeopardy.currentTime = 0;
-            question.innerText = extractedClue.answer;
-        } else if(question.innerText === extractedClue.answer)
-            {popUp.classList.add('hidden');
-            updatePlayerOneScore(value);
-        console.log(popUp.className);
-        }
-    }); 
-    // update score function currently only first player supported
-    function updatePlayerOneScore(value){
-        scoreObject[0].Score += value;
-        playerOneScore.innerText = scoreObject[0].Name + " " + scoreObject[0].Score;
-    };
+         
         
     })
 
@@ -198,7 +181,7 @@ const makeStartButton = () => {
     })
 }
 makeStartButton();
-
+const scoreObject = [{PlayerOneScore: 0, PlayerOne: "Player One:" }, {PlayerTwoScore: 0, PlayerTwo: "Player Two:"}]
 // cluePopup
 function cluePopUp(classIDValue, innerTextValue) {
     console.log(classIDValue);
@@ -248,6 +231,29 @@ function cluePopUp(classIDValue, innerTextValue) {
     answerDiv.append(musicDisclaimer);
     answerDiv.append(musicDisclaimerLink);
     
+    // event listener
+    answerButton.addEventListener('click', (evt) => {
+        console.log(evt.target.tagName);
+        if(question.innerText === extractedClue.question){
+            jeopardy.pause();
+            jeopardy.currentTime = 0;
+            question.innerText = extractedClue.answer;
+        } else if(question.innerText === extractedClue.answer)
+            {popUp.classList.add('hidden');
+            updatePlayerOneScore(value);
+        console.log(popUp.className);
+        }
+    }); 
+    
+    // update score function currently only first player supported
+    function updatePlayerOneScore(value) {
+        console.log(value)
+        
+        scoreObject[0].PlayerOneScore += value;
+        const PlayerOne = document.querySelector('.playerOneScore');
+        console.log(scoreObject)
+        PlayerOne.innerText = scoreObject[0].PlayerOne + " " + scoreObject[0].PlayerOneScore;
+    };
     
    
 }
@@ -280,7 +286,7 @@ const firstLoad = async () => {
 
 
     async function secondLoad(){
-    let y = await getCategories(2);
+    let y = await getCategories(5);
     extractedCategorys = [];
         y.forEach(
             function({title, id}){

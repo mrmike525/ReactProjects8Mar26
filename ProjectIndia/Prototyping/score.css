@@ -1,0 +1,19 @@
+.scoreContainer {
+    display: flex;
+    flex-direction: column;
+    color: orange;
+    font-size: 50px;
+    margin: 15px;
+}
+.scoreContainer:hover {
+outline: 4px solid red;
+border-radius: 40px;
+width: fit-content;
+}
+
+body {
+    background-color: black;
+}
+input, select, button {
+    font-size: 20px;
+}
