@@ -38,7 +38,6 @@ function createTable(
         } else {
             categoryHeads.innerText = category[x].title;
             categoryHeads.classList.add("categoryHeads");
-            
             headerRow.append(categoryHeads);
 
         }
@@ -58,9 +57,8 @@ function createTable(
         const clue = document.createElement('td');
         clue.classList.add("clue");
         clue.innerText = dollar + value[y];
-        console.log(value[y])
         clue.classList.add(`${category[x].title}`);
-         clue.classList.add(`id:${category[x].id}`);
+        clue.classList.add(`id:${category[x].id}`);
         
         clueRow.append(clue);
         
@@ -83,10 +81,11 @@ function createTable(
     playerOneScore.innerText = scoreObject[0].Name + " " + scoreObject[0].Score;
     
 
-    const playerTwoScore = document.createElement('th');
-    playerTwoScore.classList.add("playerTwoScore");
-    playerTwoScore.setAttribute("colspan", "3");
-    playerTwoScore.innerText = scoreObject[1].Name + " " + scoreObject[1].Score;
+    // ADD PLAYER 2 LOGIC IN LATER VERSION
+    // const playerTwoScore = document.createElement('th');
+    // playerTwoScore.classList.add("playerTwoScore");
+    // playerTwoScore.setAttribute("colspan", "3");
+    // playerTwoScore.innerText = scoreObject[1].Name + " " + scoreObject[1].Score;
     
 
 
@@ -94,14 +93,11 @@ function createTable(
     table.append(tableFoot);
     tableFoot.append(footerRow);
     footerRow.append(playerOneScore);
-    footerRow.append(playerTwoScore);
+    // footerRow.append(playerTwoScore);
 
     
-
-
     // active cell hover listener
     tableDiv.addEventListener('mouseover', (evt)=>{
-        console.log(evt.target.tagName)
         if(evt.target.tagName === "TD"){
         evt.target.classList.add("active-hover");
             
@@ -115,17 +111,15 @@ function createTable(
 
     // logic to advance value/questions/answers/checkmark add to score
     tableDiv.addEventListener('click', async (evt) => {
-        
-        
-        if(evt.target.tagName === 'TD'){
+            if(evt.target.tagName === 'TD'){
             let classID = evt.target.classList.value;
             let innerTextValue = evt.target.innerText;
-            console.log(innerTextValue)
+          
 
             let id = classID.match(/\d+/g);
             id = +id;
 
-            console.log(id)
+            
             await preLoad(id);
             cluePopUp(id, innerTextValue);
             evt.target.innerText = "✅"
@@ -147,14 +141,24 @@ function createTable(
     resetButton.addEventListener('click', (evt) => {
         tableDiv.remove();
         const popUp = document.querySelector('.popUp');
+        updatePlayerOneScore("reset");
         
-        // console.log(popUp)
+       
+        try{
         popUp.classList.add('hidden');
-        
+        } catch (error){
+            console.error("Popup does not currently exist")
+        }
+        const all = document.querySelectorAll('.popUp');
+        for(items of all){items.remove()};
         makeStartButton();
+        try{
         popUp.remove();
+        }catch(error){}
+        resetButton.remove();
         jeopardy.pause();
             jeopardy.currentTime = 0;
+            
         
     })
 }
@@ -166,33 +170,59 @@ const makeStartButton = () => {
 
     const startButtonDiv = document.createElement('div');
     startButtonDiv.classList.add("startButtonDiv");
-    
     const startButton = document.createElement('button');
     startButton.classList.add("startButton");
-    startButton.innerText = "Click Me to start a game of Jeopardy!";
-    
+    startButton.innerText = "Click Me to start a game of Clone Jeopardy!";
     body.append(startButtonDiv);
     startButtonDiv.append(startButton);
+    const labelDiv = document.createElement('div');
+    labelDiv.setAttribute('class', 'labelDiv')
+    const categorySelect = document.createElement('select');
+    categorySelect.id = "numberOfCategories";
+    categorySelect.classList.add('numberOfCategories');
+    const label = document.createElement('label');
+    label.setAttribute('for', 'numberOfCategories');
+    label.innerText = "Choose number of Categories before pressing Start"
+    for(let x = 1; x <= 14; x++){
+        const selectOption = document.createElement('option');
+        selectOption.setAttribute('value', `${x}`);
+        selectOption.innerText = x
+        categorySelect.append(selectOption);
+    }
+    body.append(labelDiv);
+    labelDiv.append(label);
+    labelDiv.append(categorySelect)
+
+
     startButtonDiv.addEventListener('click', (evt) => {
-        firstLoad();
+        const numberOfCategories = document.querySelector('.numberOfCategories');
+        const label = document.querySelector('label');
+        const labelDiv = document.querySelector('.labelDiv');
+        labelDiv.classList.add("hidden")
+        setTimeout(()=>{numberOfCategories.remove(); label.remove(); labelDiv.remove()}, 6000)
         startButtonDiv.remove();
-        
+        const spinner = document.getElementById("spinner");
+        spinner.classList.remove("hidden");
+        setTimeout(()=>firstLoad(), 4000 )
+        setTimeout(()=>{
+            spinner.classList.add("hidden")
+        }, 5000);
+
         
     })
 }
+
 makeStartButton();
+
 const scoreObject = [{PlayerOneScore: 0, PlayerOne: "Player One:" }, {PlayerTwoScore: 0, PlayerTwo: "Player Two:"}]
 // cluePopup
 function cluePopUp(classIDValue, innerTextValue) {
-    console.log(classIDValue);
     let value = innerTextValue.match(/\d+/g);
     value = +value
-    console.log(value);
-
     const extractedClue = extractedValues.clues.find(clue => clue.value === value );
-    console.log(extractedClue.question)
     
-    console.log(extractedValues);
+    
+    
 
     // create Items
     const body = document.body;
@@ -210,7 +240,6 @@ function cluePopUp(classIDValue, innerTextValue) {
     const question = document.createElement('p');
     question.classList.add("question");
     question.innerText = extractedClue.question;
-    
     const answerInput = document.createElement('input');
     answerInput.classList.add("answerInput");
     answerInput.placeholder = "Enter your answer Here";
@@ -233,30 +262,69 @@ function cluePopUp(classIDValue, innerTextValue) {
     
     // event listener
     answerButton.addEventListener('click', (evt) => {
-        console.log(evt.target.tagName);
+        
         if(question.innerText === extractedClue.question){
             jeopardy.pause();
             jeopardy.currentTime = 0;
             question.innerText = extractedClue.answer;
+            answerInput.remove();
+            answerButton.innerText = `You answered: ${answerInput.value}`;
+            answerDiv.style.display = "flex";
+            answerDiv.style.justifyContent = "center";
+            answerDiv.style.flexDirection = "column";
+            answerButton.style.position = "relative";
+            answerButton.style.fontSize = "30px";
+            // answerButton.style.left = "10%";
         } else if(question.innerText === extractedClue.answer)
             {popUp.classList.add('hidden');
-            updatePlayerOneScore(value);
-        console.log(popUp.className);
+                const clueAnswer = extractedClue.answer;
+                const clueValue = answerInput.value
+            updatePlayerOneScore(value, clueAnswer, clueValue);
+        
         }
     }); 
     
-    // update score function currently only first player supported
-    function updatePlayerOneScore(value) {
-        console.log(value)
-        
-        scoreObject[0].PlayerOneScore += value;
-        const PlayerOne = document.querySelector('.playerOneScore');
-        console.log(scoreObject)
-        PlayerOne.innerText = scoreObject[0].PlayerOne + " " + scoreObject[0].PlayerOneScore;
-    };
+   
     
    
-}
+    }
+ // update score function currently only first player supported
+    function updatePlayerOneScore(value = 0, clueAnswer = "",clueValue = "") {
+       
+         const totalTableDataCellsCount = document.querySelectorAll('td').length;
+        const totalTableDataCells = document.querySelectorAll('td')
+        let count = 0
+        
+        for(items of totalTableDataCells){
+            if(items.innerText === "✅"){
+                count++;
+            }
+        }
+        const PlayerOne = document.querySelector('.playerOneScore');
+        const lowerCaseAnswer = clueAnswer.toLowerCase();
+        const lowerCaseValue = clueValue.toLowerCase();
+        const table = document.querySelector('.table');
+        const tableHead = document.querySelector('.tableHead');
+        if(value === "reset"){
+            scoreObject[0].PlayerOneScore = 0;
+            return
+        } else 
+            if(lowerCaseAnswer === lowerCaseValue){
+        scoreObject[0].PlayerOneScore += value;
+         
+        PlayerOne.innerText = scoreObject[0].PlayerOne + " " + scoreObject[0].PlayerOneScore;
+             } else {
+        scoreObject[0].PlayerOneScore -= value;
+        PlayerOne.innerText = scoreObject[0].PlayerOne + " " + scoreObject[0].PlayerOneScore;
+        }
+        if(totalTableDataCellsCount === count){
+            count = 0;
+            alert(`GAME OVER, Final Score Tally is ${PlayerOne.innerText}`);
+            table.style.backgroundColor = "red"
+            tableHead.style.backgroundColor = "red"
+                // and ${scoreObject[1].PlayerTwo + " " + scoreObject[1].PlayerTwoScore}`); 
+        } 
+    };
 function returnPopUp() {
     const popUp = document.querySelector('.popUp');
     popUp.classList.remove("hidden");
@@ -275,7 +343,6 @@ const preLoad = async (id) => {
 }
 const firstLoad = async () => {
     await secondLoad();
-    // console.log(extractedCategorys); 
     await getIndividualCategories();
     createTable(extractedCategorys,
         extractedValues.clues.map(({value})=> value),
@@ -286,7 +353,8 @@ const firstLoad = async () => {
 
 
     async function secondLoad(){
-    let y = await getCategories(5);
+        const numberOfCategories = document.querySelector('.numberOfCategories').value;
+    let y = await getCategories(numberOfCategories);
     extractedCategorys = [];
         y.forEach(
             function({title, id}){
@@ -313,15 +381,8 @@ count=${count}`);
 async function getIndividualCategories(id = 2) {
         let result = await axios.get(`https://rithm-jeopardy.herokuapp.com/api/category?
 id=${id}`);
-console.log(result.data);
-
 const {data} = result;
-console.log(data);
-
 const clues = data.clues
 extractedValues = {category: data.title, id: data.id, clues: [...clues]};
-console.log(extractedValues)
-console.log(extractedValues.category);
-console.log(extractedValues.id);
 };
 
